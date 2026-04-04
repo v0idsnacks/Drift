@@ -1,0 +1,272 @@
+{
+  "sessionId": "4d7fe0c7-5989-4b5c-8fb0-e7db2a0f71d2",
+  "source": "A Nature-reviewed study of 197 adults with elevated LDL cholesterol found that a 10-hour daytime fasting window maintained for 12 weeks reduced LDL by 11% compared with a control group, while HDL showed no significant change. The researchers said the effect size was modest, the trial did not compare fasting with statins, and the findings should not be generalized to pregnant people, children, or people with diabetes without medical supervision.",
+  "chainSpec": {
+    "contentType": "academic",
+    "contentSummary": "A fasting study reported a modest LDL reduction, with clear limits on how broadly the result should be applied.",
+    "primaryDistortionMode": "confidence-inflation",
+    "chainDepth": 5,
+    "personas": [
+      {
+        "id": "academic-1",
+        "name": "Science Desk Reporter",
+        "role": "Summarizes peer-reviewed health studies for a general audience without dropping the caveats.",
+        "platform": "Digital newspaper",
+        "biases": ["clarity", "headline pressure", "respect for peer review"],
+        "attentionSpan": "full",
+        "incentive": "Publish an accurate but readable science brief.",
+        "transformationStyle": "Condense jargon, preserve numbers, and keep the study limitations visible."
+      },
+      {
+        "id": "academic-2",
+        "name": "Wellness Newsletter Writer",
+        "role": "Turns study findings into lifestyle-friendly tips for subscribers.",
+        "platform": "Email newsletter",
+        "biases": ["actionability", "personal optimization", "light simplification"],
+        "attentionSpan": "skim",
+        "incentive": "Give readers a useful takeaway they can try quickly.",
+        "transformationStyle": "Emphasize practical habits, shorten caveats, and foreground the result."
+      },
+      {
+        "id": "academic-3",
+        "name": "Productivity Podcaster",
+        "role": "Packages health studies as performance advice for busy listeners.",
+        "platform": "Podcast transcript",
+        "biases": ["self-improvement framing", "confidence", "novelty"],
+        "attentionSpan": "skim",
+        "incentive": "Make the insight sound memorable and personally useful.",
+        "transformationStyle": "Translate the finding into a routine, reduce nuance, and sharpen the lesson."
+      },
+      {
+        "id": "academic-4",
+        "name": "Short-Form Creator",
+        "role": "Boils research into a punchy social video script.",
+        "platform": "Vertical video",
+        "biases": ["virality", "brevity", "strong claims"],
+        "attentionSpan": "headline-only",
+        "incentive": "Maximize shares and watch time with a simple health hack.",
+        "transformationStyle": "Cut caveats, heighten certainty, and phrase the claim like a hack."
+      },
+      {
+        "id": "academic-5",
+        "name": "Family Group Forwarder",
+        "role": "Passes health tips into a family chat as practical advice.",
+        "platform": "Messaging app",
+        "biases": ["folk wisdom", "urgency", "trust in forwarded tips"],
+        "attentionSpan": "headline-only",
+        "incentive": "Help relatives by forwarding something that sounds useful and easy.",
+        "transformationStyle": "Turn the claim into direct advice and drop most scientific qualifiers."
+      }
+    ],
+    "expectedFidelitySlope": "gradual",
+    "vulnerabilityScore": 58,
+    "keyClaimsToTrack": [
+      "The study involved 197 adults with elevated LDL cholesterol.",
+      "Participants followed a 10-hour daytime fasting window for 12 weeks.",
+      "LDL cholesterol fell by 11% compared with the control group.",
+      "HDL cholesterol did not change significantly.",
+      "Researchers warned against generalizing the result without medical supervision."
+    ]
+  },
+  "nodes": [
+    {
+      "personaId": "academic-1",
+      "personaName": "Science Desk Reporter",
+      "personaRole": "Summarizes peer-reviewed health studies for a general audience without dropping the caveats.",
+      "transformedText": "Researchers reported that 197 adults with high LDL cholesterol who kept eating within a 10-hour daytime window for 12 weeks saw LDL fall by about 11% versus a control group. HDL did not shift significantly. The team stressed that the trial was modest, did not compare fasting against statins, and should not be treated as guidance for pregnant people, children, or people with diabetes without a clinician's supervision.",
+      "tokenCount": 146
+    },
+    {
+      "personaId": "academic-2",
+      "personaName": "Wellness Newsletter Writer",
+      "personaRole": "Turns study findings into lifestyle-friendly tips for subscribers.",
+      "transformedText": "A 12-week fasting experiment suggests that keeping meals inside a 10-hour daytime window may help lower LDL cholesterol by roughly 11%. The study tracked nearly 200 adults with elevated LDL, while HDL stayed mostly the same. It was not a medication comparison, so readers should treat this as an interesting habit experiment rather than a substitute for medical care.",
+      "tokenCount": 127
+    },
+    {
+      "personaId": "academic-3",
+      "personaName": "Productivity Podcaster",
+      "personaRole": "Packages health studies as performance advice for busy listeners.",
+      "transformedText": "One of the simplest metabolic routines in a recent study was limiting food to a 10-hour daytime window. People doing that for 12 weeks saw their bad cholesterol come down by around 11%, with no big movement in the other cholesterol marker. It is not magic, but it does suggest your eating window can matter more than people think.",
+      "tokenCount": 119
+    },
+    {
+      "personaId": "academic-4",
+      "personaName": "Short-Form Creator",
+      "personaRole": "Boils research into a punchy social video script.",
+      "transformedText": "New study: eat only within a 10-hour daytime window and your bad cholesterol drops about 11% in three months. No expensive stack, no extreme diet, just tighter timing. If you want an easy heart-health upgrade, start with your meal window.",
+      "tokenCount": 92
+    },
+    {
+      "personaId": "academic-5",
+      "personaName": "Family Group Forwarder",
+      "personaRole": "Passes health tips into a family chat as practical advice.",
+      "transformedText": "Doctors are saying if you finish all meals within 10 daytime hours, cholesterol will come down in about 12 weeks. Very easy rule: breakfast on time, dinner early, no late-night eating. Good tip for everyone worried about heart problems.",
+      "tokenCount": 82
+    }
+  ],
+  "metrics": [
+    {
+      "nodeIndex": 0,
+      "personaId": "academic-1",
+      "fidelityScore": 92,
+      "confidenceInflation": 12,
+      "detailSurvivalRate": 100,
+      "framingPolarity": 4,
+      "fidelityDelta": -8,
+      "confidenceInflationDelta": 12,
+      "detailSurvivalDelta": 0,
+      "framingPolarityDelta": 4,
+      "survivingClaims": [
+        "The study involved 197 adults with elevated LDL cholesterol.",
+        "Participants followed a 10-hour daytime fasting window for 12 weeks.",
+        "LDL cholesterol fell by 11% compared with the control group.",
+        "HDL cholesterol did not change significantly.",
+        "Researchers warned against generalizing the result without medical supervision."
+      ],
+      "lostClaims": [],
+      "distortedClaims": [],
+      "addedClaims": [],
+      "primaryDistortionObserved": "The study was simplified for readability, but the core numbers and caveats remained intact."
+    },
+    {
+      "nodeIndex": 1,
+      "personaId": "academic-2",
+      "fidelityScore": 76,
+      "confidenceInflation": 28,
+      "detailSurvivalRate": 80,
+      "framingPolarity": 18,
+      "fidelityDelta": -16,
+      "confidenceInflationDelta": 16,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 14,
+      "survivingClaims": [
+        "Participants followed a 10-hour daytime fasting window for 12 weeks.",
+        "LDL cholesterol fell by 11% compared with the control group.",
+        "HDL cholesterol did not change significantly."
+      ],
+      "lostClaims": [
+        "Researchers warned against generalizing the result without medical supervision."
+      ],
+      "distortedClaims": [
+        "The study involved 197 adults with elevated LDL cholesterol."
+      ],
+      "addedClaims": [],
+      "primaryDistortionObserved": "Audience-friendly advice framing shortened the eligibility caveats and softened the study population details."
+    },
+    {
+      "nodeIndex": 2,
+      "personaId": "academic-3",
+      "fidelityScore": 63,
+      "confidenceInflation": 41,
+      "detailSurvivalRate": 60,
+      "framingPolarity": 32,
+      "fidelityDelta": -13,
+      "confidenceInflationDelta": 13,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 14,
+      "survivingClaims": [
+        "Participants followed a 10-hour daytime fasting window for 12 weeks.",
+        "LDL cholesterol fell by 11% compared with the control group."
+      ],
+      "lostClaims": [
+        "The study involved 197 adults with elevated LDL cholesterol.",
+        "Researchers warned against generalizing the result without medical supervision."
+      ],
+      "distortedClaims": [
+        "HDL cholesterol did not change significantly."
+      ],
+      "addedClaims": [
+        "Your eating window can matter more than people think."
+      ],
+      "primaryDistortionObserved": "The study became a performance lesson, preserving the main result while muting who the evidence actually applied to."
+    },
+    {
+      "nodeIndex": 3,
+      "personaId": "academic-4",
+      "fidelityScore": 48,
+      "confidenceInflation": 63,
+      "detailSurvivalRate": 40,
+      "framingPolarity": 49,
+      "fidelityDelta": -15,
+      "confidenceInflationDelta": 22,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 17,
+      "survivingClaims": [
+        "Participants followed a 10-hour daytime fasting window for 12 weeks.",
+        "LDL cholesterol fell by 11% compared with the control group."
+      ],
+      "lostClaims": [
+        "The study involved 197 adults with elevated LDL cholesterol.",
+        "HDL cholesterol did not change significantly.",
+        "Researchers warned against generalizing the result without medical supervision."
+      ],
+      "distortedClaims": [],
+      "addedClaims": [
+        "If you want an easy heart-health upgrade, start with your meal window."
+      ],
+      "primaryDistortionObserved": "The message shifted into a viral health-hack format, dropping population limits and turning the finding into direct lifestyle advice."
+    },
+    {
+      "nodeIndex": 4,
+      "personaId": "academic-5",
+      "fidelityScore": 36,
+      "confidenceInflation": 78,
+      "detailSurvivalRate": 20,
+      "framingPolarity": 61,
+      "fidelityDelta": -12,
+      "confidenceInflationDelta": 15,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 12,
+      "survivingClaims": [
+        "Participants followed a 10-hour daytime fasting window for 12 weeks."
+      ],
+      "lostClaims": [
+        "The study involved 197 adults with elevated LDL cholesterol.",
+        "HDL cholesterol did not change significantly.",
+        "Researchers warned against generalizing the result without medical supervision."
+      ],
+      "distortedClaims": [
+        "LDL cholesterol fell by 11% compared with the control group."
+      ],
+      "addedClaims": [
+        "Doctors are saying this works for everyone worried about heart problems."
+      ],
+      "primaryDistortionObserved": "A modest research finding hardened into universal advice with the original uncertainty almost completely stripped away."
+    }
+  ],
+  "damageSegments": [
+    {
+      "text": "197 adults with elevated LDL cholesterol",
+      "fate": "lost",
+      "appearsInNodeIndices": [0, 1]
+    },
+    {
+      "text": "10-hour daytime fasting window for 12 weeks",
+      "fate": "survived",
+      "appearsInNodeIndices": [0, 1, 2, 3, 4]
+    },
+    {
+      "text": "LDL fell by 11%",
+      "fate": "paraphrased",
+      "appearsInNodeIndices": [0, 1, 2, 3, 4]
+    },
+    {
+      "text": "HDL showed no significant change",
+      "fate": "lost",
+      "appearsInNodeIndices": [0, 1, 2]
+    },
+    {
+      "text": "Do not generalize without medical supervision",
+      "fate": "lost",
+      "appearsInNodeIndices": [0, 1]
+    },
+    {
+      "text": "Doctors are saying this works for everyone",
+      "fate": "fabricated",
+      "appearsInNodeIndices": [4]
+    }
+  ],
+  "disagreementScore": 34,
+  "computedAt": "2026-04-03T14:22:00.000Z"
+}

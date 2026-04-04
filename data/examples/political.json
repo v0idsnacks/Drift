@@ -1,0 +1,230 @@
+{
+  "sessionId": "e1b3c4d5-6f78-4a9b-8cde-1234f56789ab",
+  "source": "The governor's immigration package would hire 250 additional asylum case officers, fund legal aid for work-eligible applicants, expand border screening technology, and create penalties for employers who knowingly exploit undocumented labor. The statement said the proposal would not authorize mass deportations and would require annual public reporting to the legislature on case backlogs, labor enforcement, and asylum processing times.",
+  "chainSpec": {
+    "contentType": "political",
+    "contentSummary": "A mixed immigration package combined staffing, legal aid, technology spending, and employer penalties, while explicitly rejecting mass deportations.",
+    "primaryDistortionMode": "framing-shift",
+    "chainDepth": 4,
+    "personas": [
+      {
+        "id": "political-1",
+        "name": "Statehouse Correspondent",
+        "role": "Covers policy rollouts with attention to legislative detail and explicit qualifiers.",
+        "platform": "Capitol bureau article",
+        "biases": ["procedural detail", "balance", "source attribution"],
+        "attentionSpan": "full",
+        "incentive": "Explain what is actually in the policy package.",
+        "transformationStyle": "Preserve the package components, quote the boundary conditions, and keep the reporting neutral."
+      },
+      {
+        "id": "political-2",
+        "name": "Partisan Newsletter Editor",
+        "role": "Reframes policy news to energize a loyal ideological audience.",
+        "platform": "Political newsletter",
+        "biases": ["coalition signaling", "selective emphasis", "conflict"],
+        "attentionSpan": "skim",
+        "incentive": "Highlight the parts of the proposal that matter most to supporters.",
+        "transformationStyle": "Foreground ideological stakes, compress procedural details, and sharpen the contrast."
+      },
+      {
+        "id": "political-3",
+        "name": "Cable Panel Clip Producer",
+        "role": "Cuts policy discussion into short, combative soundbites.",
+        "platform": "Clip account",
+        "biases": ["controversy", "brevity", "winner-loser framing"],
+        "attentionSpan": "headline-only",
+        "incentive": "Make the proposal sound like a decisive political move.",
+        "transformationStyle": "Reduce the package to a few charged claims and drop quieter constraints."
+      },
+      {
+        "id": "political-4",
+        "name": "Neighborhood Group Poster",
+        "role": "Shares politics in local groups as quick warnings or endorsements.",
+        "platform": "Community forum",
+        "biases": ["alarm", "simplicity", "tribal shorthand"],
+        "attentionSpan": "headline-only",
+        "incentive": "Tell neighbors what side to take in one sentence.",
+        "transformationStyle": "Turn the package into a blunt takeaway and remove implementation detail."
+      }
+    ],
+    "expectedFidelitySlope": "steep",
+    "vulnerabilityScore": 73,
+    "keyClaimsToTrack": [
+      "The package would hire 250 additional asylum case officers.",
+      "It would fund legal aid for work-eligible applicants.",
+      "It would expand border screening technology.",
+      "It would penalize employers who knowingly exploit undocumented labor.",
+      "It would not authorize mass deportations and would require annual public reporting."
+    ]
+  },
+  "nodes": [
+    {
+      "personaId": "political-1",
+      "personaName": "Statehouse Correspondent",
+      "personaRole": "Covers policy rollouts with attention to legislative detail and explicit qualifiers.",
+      "transformedText": "The governor proposed an immigration package that adds 250 asylum case officers, increases legal aid for applicants who are already eligible to work, expands screening technology at the border, and penalizes employers who knowingly exploit undocumented labor. The administration said the bill does not authorize mass deportations and would require yearly public reports on backlogs, labor enforcement, and processing times.",
+      "tokenCount": 132
+    },
+    {
+      "personaId": "political-2",
+      "personaName": "Partisan Newsletter Editor",
+      "personaRole": "Reframes policy news to energize a loyal ideological audience.",
+      "transformedText": "The governor is trying to sell a middle-path immigration package: more asylum staffing, more taxpayer-funded legal aid, more border tech, and tougher penalties for businesses abusing undocumented workers. Officials insist it is not a mass-deportation plan, but the politics are clearly aimed at showing the administration can look tougher without embracing the right's broadest demands.",
+      "tokenCount": 125
+    },
+    {
+      "personaId": "political-3",
+      "personaName": "Cable Panel Clip Producer",
+      "personaRole": "Cuts policy discussion into short, combative soundbites.",
+      "transformedText": "New immigration push: more border tech, more asylum staff, and crackdowns on employers. The governor says it is not mass deportation, but critics say it is a tough-on-immigration reset dressed up as reform.",
+      "tokenCount": 82
+    },
+    {
+      "personaId": "political-4",
+      "personaName": "Neighborhood Group Poster",
+      "personaRole": "Shares politics in local groups as quick warnings or endorsements.",
+      "transformedText": "Governor just rolled out a tougher immigration plan with more border surveillance and employer crackdowns. They are pretending it is reform, but it is basically a crackdown package.",
+      "tokenCount": 63
+    }
+  ],
+  "metrics": [
+    {
+      "nodeIndex": 0,
+      "personaId": "political-1",
+      "fidelityScore": 89,
+      "confidenceInflation": 9,
+      "detailSurvivalRate": 100,
+      "framingPolarity": -2,
+      "fidelityDelta": -11,
+      "confidenceInflationDelta": 9,
+      "detailSurvivalDelta": 0,
+      "framingPolarityDelta": -2,
+      "survivingClaims": [
+        "The package would hire 250 additional asylum case officers.",
+        "It would fund legal aid for work-eligible applicants.",
+        "It would expand border screening technology.",
+        "It would penalize employers who knowingly exploit undocumented labor.",
+        "It would not authorize mass deportations and would require annual public reporting."
+      ],
+      "lostClaims": [],
+      "distortedClaims": [],
+      "addedClaims": [],
+      "primaryDistortionObserved": "The statement became a cleaner news brief, but the package contents and caveats stayed visible."
+    },
+    {
+      "nodeIndex": 1,
+      "personaId": "political-2",
+      "fidelityScore": 71,
+      "confidenceInflation": 31,
+      "detailSurvivalRate": 80,
+      "framingPolarity": -24,
+      "fidelityDelta": -18,
+      "confidenceInflationDelta": 22,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": -22,
+      "survivingClaims": [
+        "The package would hire 250 additional asylum case officers.",
+        "It would fund legal aid for work-eligible applicants.",
+        "It would expand border screening technology.",
+        "It would penalize employers who knowingly exploit undocumented labor."
+      ],
+      "lostClaims": [
+        "It would not authorize mass deportations and would require annual public reporting."
+      ],
+      "distortedClaims": [],
+      "addedClaims": [
+        "The politics are aimed at looking tougher without embracing the right's broadest demands."
+      ],
+      "primaryDistortionObserved": "Interpretive political framing began to crowd out the reporting and accountability details."
+    },
+    {
+      "nodeIndex": 2,
+      "personaId": "political-3",
+      "fidelityScore": 55,
+      "confidenceInflation": 54,
+      "detailSurvivalRate": 60,
+      "framingPolarity": -46,
+      "fidelityDelta": -16,
+      "confidenceInflationDelta": 23,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": -22,
+      "survivingClaims": [
+        "It would expand border screening technology.",
+        "It would penalize employers who knowingly exploit undocumented labor."
+      ],
+      "lostClaims": [
+        "The package would hire 250 additional asylum case officers.",
+        "It would fund legal aid for work-eligible applicants."
+      ],
+      "distortedClaims": [
+        "It would not authorize mass deportations and would require annual public reporting."
+      ],
+      "addedClaims": [
+        "Critics say it is a tough-on-immigration reset dressed up as reform."
+      ],
+      "primaryDistortionObserved": "The policy package collapsed into conflict-heavy talking points, with the reporting requirement nearly disappearing."
+    },
+    {
+      "nodeIndex": 3,
+      "personaId": "political-4",
+      "fidelityScore": 34,
+      "confidenceInflation": 77,
+      "detailSurvivalRate": 20,
+      "framingPolarity": -68,
+      "fidelityDelta": -21,
+      "confidenceInflationDelta": 23,
+      "detailSurvivalDelta": -40,
+      "framingPolarityDelta": -22,
+      "survivingClaims": [
+        "It would expand border screening technology."
+      ],
+      "lostClaims": [
+        "The package would hire 250 additional asylum case officers.",
+        "It would fund legal aid for work-eligible applicants.",
+        "It would not authorize mass deportations and would require annual public reporting."
+      ],
+      "distortedClaims": [
+        "It would penalize employers who knowingly exploit undocumented labor."
+      ],
+      "addedClaims": [
+        "It is basically a crackdown package."
+      ],
+      "primaryDistortionObserved": "The mixed policy bundle was reduced to a single ideological label, with most of the balancing details gone."
+    }
+  ],
+  "damageSegments": [
+    {
+      "text": "250 additional asylum case officers",
+      "fate": "lost",
+      "appearsInNodeIndices": [0, 1]
+    },
+    {
+      "text": "Legal aid for work-eligible applicants",
+      "fate": "lost",
+      "appearsInNodeIndices": [0, 1]
+    },
+    {
+      "text": "Expanded border screening technology",
+      "fate": "survived",
+      "appearsInNodeIndices": [0, 1, 2, 3]
+    },
+    {
+      "text": "Penalties for employers exploiting undocumented labor",
+      "fate": "paraphrased",
+      "appearsInNodeIndices": [0, 1, 2, 3]
+    },
+    {
+      "text": "No mass deportations plus annual public reporting",
+      "fate": "lost",
+      "appearsInNodeIndices": [0, 1, 2]
+    },
+    {
+      "text": "Basically a crackdown package",
+      "fate": "fabricated",
+      "appearsInNodeIndices": [3]
+    }
+  ],
+  "disagreementScore": 61,
+  "computedAt": "2026-04-03T15:05:00.000Z"
+}

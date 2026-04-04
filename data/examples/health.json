@@ -1,0 +1,230 @@
+{
+  "sessionId": "9a4c1e5b-2d63-4d88-9f16-72b2f21f0c4e",
+  "source": "The World Health Organization advises adults and children to reduce free sugar intake to less than 10% of total daily energy intake, and says reducing it below 5% may provide additional health benefits. The guidance applies to sugars added to foods plus sugars naturally present in honey, syrups, fruit juices, and fruit juice concentrates. It does not apply to sugars contained in whole fruits, vegetables, or milk.",
+  "chainSpec": {
+    "contentType": "health",
+    "contentSummary": "WHO guidance sets a clear daily ceiling for free sugars, while distinguishing juice and honey from whole fruit and milk.",
+    "primaryDistortionMode": "context-stripping",
+    "chainDepth": 4,
+    "personas": [
+      {
+        "id": "health-1",
+        "name": "Public Health Reporter",
+        "role": "Explains medical guidance with definitions and guardrails intact.",
+        "platform": "Health desk article",
+        "biases": ["precision", "public service", "clarity"],
+        "attentionSpan": "full",
+        "incentive": "Translate the recommendation accurately for non-specialists.",
+        "transformationStyle": "Keep the threshold, define free sugars, and preserve the exclusions."
+      },
+      {
+        "id": "health-2",
+        "name": "Nutrition Blogger",
+        "role": "Turns official guidance into practical diet rules.",
+        "platform": "Blog post",
+        "biases": ["actionable advice", "clean eating", "simplification"],
+        "attentionSpan": "skim",
+        "incentive": "Give readers an easy rule for sugar intake.",
+        "transformationStyle": "Turn percentages into habits and reduce the taxonomy."
+      },
+      {
+        "id": "health-3",
+        "name": "Fitness Influencer",
+        "role": "Packages nutrition advice into strong motivational claims.",
+        "platform": "Short caption",
+        "biases": ["discipline", "absolutes", "body optimization"],
+        "attentionSpan": "headline-only",
+        "incentive": "Make followers feel they need to change behavior today.",
+        "transformationStyle": "Replace nuance with a harder rule and frame sugar as a problem to cut aggressively."
+      },
+      {
+        "id": "health-4",
+        "name": "Office Chat Messenger",
+        "role": "Shares health tips informally with coworkers.",
+        "platform": "Chat app",
+        "biases": ["memorability", "urgency", "folk reinterpretation"],
+        "attentionSpan": "headline-only",
+        "incentive": "Pass on a simple health warning people will remember.",
+        "transformationStyle": "Boil the advice down to a few obvious do's and don'ts."
+      }
+    ],
+    "expectedFidelitySlope": "plateau-then-drop",
+    "vulnerabilityScore": 66,
+    "keyClaimsToTrack": [
+      "WHO recommends keeping free sugars below 10% of daily energy intake.",
+      "Reducing free sugars below 5% may provide additional benefits.",
+      "Free sugars include sugar added to foods plus sugars in honey, syrups, fruit juice, and fruit juice concentrates.",
+      "The guidance does not apply to sugars in whole fruits or vegetables.",
+      "The guidance also excludes sugars in milk."
+    ]
+  },
+  "nodes": [
+    {
+      "personaId": "health-1",
+      "personaName": "Public Health Reporter",
+      "personaRole": "Explains medical guidance with definitions and guardrails intact.",
+      "transformedText": "WHO recommends that adults and children keep free sugars below 10% of total daily energy intake, and says getting below 5% could offer extra benefits. The agency counts sugars added to foods as well as sugars in honey, syrups, fruit juice, and fruit juice concentrates. It does not apply that rule to sugars found naturally in whole fruits, vegetables, or milk.",
+      "tokenCount": 123
+    },
+    {
+      "personaId": "health-2",
+      "personaName": "Nutrition Blogger",
+      "personaRole": "Turns official guidance into practical diet rules.",
+      "transformedText": "WHO's basic sugar rule is to keep free sugar under 10% of your day, with an even better target under 5% if you can manage it. That includes added sugar and the sugars in honey, syrups, and juice, so a big smoothie or fruit juice still counts. Whole fruit is different, which is why eating an orange is not the same as drinking one.",
+      "tokenCount": 124
+    },
+    {
+      "personaId": "health-3",
+      "personaName": "Fitness Influencer",
+      "personaRole": "Packages nutrition advice into strong motivational claims.",
+      "transformedText": "WHO basically says keep sugar as low as possible and stop pretending juice is healthier just because it comes from fruit. If you want better health, treat added sugar, honey, syrups, and juice the same way: limit them hard and eat whole fruit instead.",
+      "tokenCount": 89
+    },
+    {
+      "personaId": "health-4",
+      "personaName": "Office Chat Messenger",
+      "personaRole": "Shares health tips informally with coworkers.",
+      "transformedText": "WHO warning: sugar should be under 5% a day, and juice or honey count just like soda. Best rule is skip sweet drinks and just eat whole fruit.",
+      "tokenCount": 53
+    }
+  ],
+  "metrics": [
+    {
+      "nodeIndex": 0,
+      "personaId": "health-1",
+      "fidelityScore": 94,
+      "confidenceInflation": 10,
+      "detailSurvivalRate": 100,
+      "framingPolarity": 6,
+      "fidelityDelta": -6,
+      "confidenceInflationDelta": 10,
+      "detailSurvivalDelta": 0,
+      "framingPolarityDelta": 6,
+      "survivingClaims": [
+        "WHO recommends keeping free sugars below 10% of daily energy intake.",
+        "Reducing free sugars below 5% may provide additional benefits.",
+        "Free sugars include sugar added to foods plus sugars in honey, syrups, fruit juice, and fruit juice concentrates.",
+        "The guidance does not apply to sugars in whole fruits or vegetables.",
+        "The guidance also excludes sugars in milk."
+      ],
+      "lostClaims": [],
+      "distortedClaims": [],
+      "addedClaims": [],
+      "primaryDistortionObserved": "The formal guidance was translated into plain language with the thresholds and exclusions preserved."
+    },
+    {
+      "nodeIndex": 1,
+      "personaId": "health-2",
+      "fidelityScore": 80,
+      "confidenceInflation": 26,
+      "detailSurvivalRate": 80,
+      "framingPolarity": 18,
+      "fidelityDelta": -14,
+      "confidenceInflationDelta": 16,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 12,
+      "survivingClaims": [
+        "WHO recommends keeping free sugars below 10% of daily energy intake.",
+        "Reducing free sugars below 5% may provide additional benefits.",
+        "Free sugars include sugar added to foods plus sugars in honey, syrups, fruit juice, and fruit juice concentrates.",
+        "The guidance does not apply to sugars in whole fruits or vegetables."
+      ],
+      "lostClaims": [
+        "The guidance also excludes sugars in milk."
+      ],
+      "distortedClaims": [],
+      "addedClaims": [
+        "Eating an orange is not the same as drinking one."
+      ],
+      "primaryDistortionObserved": "The recommendation became a practical nutrition rule, and one of the exclusions quietly disappeared."
+    },
+    {
+      "nodeIndex": 2,
+      "personaId": "health-3",
+      "fidelityScore": 61,
+      "confidenceInflation": 52,
+      "detailSurvivalRate": 60,
+      "framingPolarity": 39,
+      "fidelityDelta": -19,
+      "confidenceInflationDelta": 26,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 21,
+      "survivingClaims": [
+        "Free sugars include sugar added to foods plus sugars in honey, syrups, fruit juice, and fruit juice concentrates.",
+        "The guidance does not apply to sugars in whole fruits or vegetables."
+      ],
+      "lostClaims": [
+        "The guidance also excludes sugars in milk."
+      ],
+      "distortedClaims": [
+        "WHO recommends keeping free sugars below 10% of daily energy intake.",
+        "Reducing free sugars below 5% may provide additional benefits."
+      ],
+      "addedClaims": [
+        "WHO basically says keep sugar as low as possible."
+      ],
+      "primaryDistortionObserved": "The conditional WHO thresholds were recast as a much harsher moral rule to cut sugar aggressively."
+    },
+    {
+      "nodeIndex": 3,
+      "personaId": "health-4",
+      "fidelityScore": 43,
+      "confidenceInflation": 72,
+      "detailSurvivalRate": 40,
+      "framingPolarity": 57,
+      "fidelityDelta": -18,
+      "confidenceInflationDelta": 20,
+      "detailSurvivalDelta": -20,
+      "framingPolarityDelta": 18,
+      "survivingClaims": [
+        "Free sugars include sugar added to foods plus sugars in honey, syrups, fruit juice, and fruit juice concentrates.",
+        "The guidance does not apply to sugars in whole fruits or vegetables."
+      ],
+      "lostClaims": [
+        "The guidance also excludes sugars in milk."
+      ],
+      "distortedClaims": [
+        "WHO recommends keeping free sugars below 10% of daily energy intake.",
+        "Reducing free sugars below 5% may provide additional benefits."
+      ],
+      "addedClaims": [
+        "Juice or honey count just like soda."
+      ],
+      "primaryDistortionObserved": "A two-tier recommendation turned into a single hard limit, with comparisons added for memorability."
+    }
+  ],
+  "damageSegments": [
+    {
+      "text": "Less than 10% of daily energy intake",
+      "fate": "paraphrased",
+      "appearsInNodeIndices": [0, 1, 2, 3]
+    },
+    {
+      "text": "Below 5% may provide additional benefits",
+      "fate": "paraphrased",
+      "appearsInNodeIndices": [0, 1, 2, 3]
+    },
+    {
+      "text": "Honey, syrups, fruit juice, and concentrates count as free sugars",
+      "fate": "survived",
+      "appearsInNodeIndices": [0, 1, 2, 3]
+    },
+    {
+      "text": "Whole fruits and vegetables are excluded",
+      "fate": "survived",
+      "appearsInNodeIndices": [0, 1, 2, 3]
+    },
+    {
+      "text": "Milk is excluded",
+      "fate": "lost",
+      "appearsInNodeIndices": [0]
+    },
+    {
+      "text": "Juice or honey count just like soda",
+      "fate": "fabricated",
+      "appearsInNodeIndices": [3]
+    }
+  ],
+  "disagreementScore": 28,
+  "computedAt": "2026-04-03T16:18:00.000Z"
+}
