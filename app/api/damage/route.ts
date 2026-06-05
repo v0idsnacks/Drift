@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { buildDamagePrompt } from '@/lib/prompt-builders';
-import { callOpenRouter, METRICS_MODEL } from '@/lib/openrouter';
+import { callOpenRouter } from '@/lib/openrouter';
 import { TextSegmentSchema } from '@/lib/schemas';
 
 const DamageRequestSchema = z.object({
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     // Enforce JSON output for Claude 3.5 Sonnet
     const jsonPrompt = prompt + "\n\nCRITICAL: Respond ONLY with a valid JSON array. Do not include markdown formatting or thinking blocks.";
     
-    const responseText = await callOpenRouter(jsonPrompt, METRICS_MODEL);
+    const responseText = await callOpenRouter(jsonPrompt);
     
     // Parse the JSON array
     let segments;

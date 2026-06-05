@@ -6,7 +6,34 @@ import { buildMetricsPrompt, buildDamagePrompt } from './prompt-builders';
 import { NodeMetricsSchema } from './schemas';
 import { variance, normalize } from './utils';
 import type { NodeMetrics, TextSegment } from '@/types';
-import { callOpenRouter, METRICS_MODEL } from './openrouter';
+import { callOpenRouter } from './openrouter';
+
+// ── Robust JSON extraction ───────────────────────────────────
+// Free models often wrap JSON in markdown fences, add preamble,
+// or truncate output. This helper extracts the first valid JSON
+// object or array from arbitrary text.
+function extractJson(raw: string): unknown {
+  // 1. Strip markdown fences
+  let text = raw.replace(/```json\n?/gi, '').replace(/```\n?/g, '').trim();
+
+  // 2. Try direct parse
+  try { return JSON.parse(text); } catch { /* continue */ }
+
+  // 3. Try to find a JSON object {...} in the text
+  const objMatch = text.match(/\{[\s\S]*\}/);
+  if (objMatch) {
+    try { return JSON.parse(objMatch[0]); } catch { /* continue */ }
+  }
+
+  // 4. Try to find a JSON array [...] in the text
+  const arrMatch = text.match(/\[[\s\S]*\]/);
+  if (arrMatch) {
+    try { return JSON.parse(arrMatch[0]); } catch { /* continue */ }
+  }
+
+  // 5. Nothing worked
+  throw new SyntaxError(`Could not extract valid JSON from LLM response (${text.length} chars). First 200 chars: ${text.slice(0, 200)}`);
+}
 
 export async function computeNodeMetrics(
   originalSource: string,
@@ -26,14 +53,13 @@ export async function computeNodeMetrics(
   );
 
   let attempt = 0;
-  const maxAttempts = 2;
+  const maxAttempts = 3;
   let scored;
 
   while (attempt <= maxAttempts) {
     try {
-      const rawText = await callOpenRouter(prompt, METRICS_MODEL);
-      const cleaned = rawText.replace(/```json\n?/gi, '').replace(/```\n?/g, '').trim();
-      const parsed = JSON.parse(cleaned);
+      const rawText = await callOpenRouter(prompt);
+      const parsed = extractJson(rawText);
       scored = NodeMetricsSchema.parse(parsed);
       break;
     } catch (err) {
@@ -41,7 +67,8 @@ export async function computeNodeMetrics(
       if (attempt > maxAttempts) {
         throw new Error(`Metrics API failed after ${maxAttempts + 1} attempts: ${err}`);
       }
-      await new Promise(r => setTimeout(r, 1000));
+      console.warn(`[Drift] Metrics parse failed (attempt ${attempt}/${maxAttempts + 1}): ${err}`);
+      await new Promise(r => setTimeout(r, 2000));
     }
   }
 
@@ -85,21 +112,24 @@ export async function computeDamageSegments(
   const prompt = buildDamagePrompt(originalSource, finalNodeOutput);
 
   let attempt = 0;
-  const maxAttempts = 2;
+  const maxAttempts = 3;
 
   while (attempt <= maxAttempts) {
     try {
-      const rawText = await callOpenRouter(prompt, METRICS_MODEL);
-      const cleaned = rawText.replace(/```json\n?/gi, '').replace(/```\n?/g, '').trim();
-      return JSON.parse(cleaned) as TextSegment[];
+      const rawText = await callOpenRouter(prompt);
+      const parsed = extractJson(rawText);
+      return parsed as TextSegment[];
     } catch (err) {
       attempt++;
       if (attempt > maxAttempts) {
-        throw new Error(`Damage Segments API failed after ${maxAttempts + 1} attempts: ${err}`);
+        // Damage segments are optional — return empty rather than crashing
+        console.error(`[Drift] Damage Segments failed after ${maxAttempts + 1} attempts, returning empty: ${err}`);
+        return [];
       }
-      await new Promise(r => setTimeout(r, 1000));
+      console.warn(`[Drift] Damage parse failed (attempt ${attempt}/${maxAttempts + 1}): ${err}`);
+      await new Promise(r => setTimeout(r, 2000));
     }
   }
 
-  throw new Error("unreachable");
+  return [];
 }

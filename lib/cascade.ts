@@ -8,7 +8,7 @@ import { computeNodeMetrics, computeDisagreementScore, computeDamageSegments } f
 import { saveSession } from './storage';
 import { generateSessionId } from './utils';
 import type { ChainSpec, NodeOutput, NodeMetrics, CascadeResult, StreamEvent } from '@/types';
-import { callOpenRouter, PERSONA_MODEL } from './openrouter';
+import { callOpenRouter } from './openrouter';
 
 export async function runCascade(
   source: string,
@@ -30,7 +30,7 @@ export async function runCascade(
 
     let transformedText = "";
     try {
-      transformedText = await callOpenRouter(prompt, PERSONA_MODEL);
+      transformedText = await callOpenRouter(prompt);
     } catch (error) {
       throw new Error(`Failed node ${persona.id} API call: ${error}`);
     }
@@ -40,7 +40,7 @@ export async function runCascade(
       personaName: persona.name,
       personaRole: persona.role,
       transformedText,
-      tokenCount: transformedText.length / 4, // Rough approximation since we don't have the exact token count from custom fetch
+      tokenCount: transformedText.length / 4, // Rough approximation
     };
 
     // Compute metrics for this node
