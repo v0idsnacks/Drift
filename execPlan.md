@@ -145,7 +145,7 @@ drift/
 │   └── index.ts                   # All shared TypeScript types
 ├── public/
 │   └── examples/                  # 3 pre-run example sessions (JSON)
-├── .env.local                     # ANTHROPIC_API_KEY
+├── .env.local                     # LLM_API_KEY
 ├── execPlan.md                    # This file
 └── README.md
 ```
